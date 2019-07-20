@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: k8s-demo
-        image: wardviaene/k8s-demo
+        image: geisonbiazus/docker-demo:v1
         ports:
         - name: nodejs-port
           containerPort: 3000
