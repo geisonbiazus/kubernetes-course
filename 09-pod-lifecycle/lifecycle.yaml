@@ -9,7 +9,10 @@ spec:
       labels:
         app: lifecycle
     spec:
-      initContainers:
+      # runs before initializing the container.
+      # You can run different image than your main 
+      # container image to run some commands
+      initContainers: 
       - name:           init
         image:          busybox
         command:       ['sh', '-c', 'sleep 10']
@@ -27,9 +30,9 @@ spec:
           initialDelaySeconds: 35
           timeoutSeconds: 30
         lifecycle:
-          postStart:
+          postStart: #runs after starting the container
             exec:
               command: ['sh', '-c', 'echo $(date +%s): postStart >> /timing && sleep 10 && echo $(date +%s): end postStart >> /timing']
-          preStop:
+          preStop: #runs before stoping the container
             exec:
               command: ['sh', '-c', 'echo $(date +%s): preStop >> /timing && sleep 10']

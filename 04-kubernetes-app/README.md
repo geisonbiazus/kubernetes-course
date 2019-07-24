@@ -51,3 +51,9 @@ Execute a shell in a new pod with the busybox image
 ```
 kubectl run -i --tty busybox --image=busybox --restart=Never -- sh
 ```
+
+Get pod info and show container statuses
+
+```
+kubectl get pod helloworld-deployment-d66889848-fgq9w -o yaml
+```
