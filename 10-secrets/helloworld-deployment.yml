@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: helloworld-deployment
+spec:
+  replicas: 3
+  template: 
+    metadata:
+      labels:
+        app: helloworld
+    spec:
+      containers:
+      - name: docker-demo
+        image: geisonbiazus/docker-demo:v1
+        ports:
+        - name: nodejs-port
+          containerPort: 3000
+        volumeMounts:
+        - name: cred-volume
+          mountPath: /etc/creds
+          readOnly: true
+      volumes:
+      - name: cred-volume
+        secret:
+          secretName: db-secrets
+
+# You can access the files /etc/creds/username and /etc/creds/password
