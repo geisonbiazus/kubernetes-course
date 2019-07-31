@@ -11,14 +11,14 @@ spec:
     spec:
       containers:
       - name: k8s-demo
-        image: wardviaene/k8s-demo
+        image: geisonbiazus/docker-demo:v1
         command: ["node", "index-db.js"]
         ports:
         - name: nodejs-port
           containerPort: 3000
         env:
           - name: MYSQL_HOST
-            value: database-service
+            value: database-service # resolve the ip address based on service name
           - name: MYSQL_USER
             value: root
           - name: MYSQL_PASSWORD
