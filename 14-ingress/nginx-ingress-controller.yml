@@ -1,4 +1,5 @@
 # updated this file with the latest ingress-controller from https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/mandatory.yaml
+# I didn't use this - Geison
 apiVersion: extensions/v1beta1
 kind: DaemonSet
 metadata:
