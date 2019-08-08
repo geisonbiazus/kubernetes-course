@@ -58,3 +58,14 @@ select a context
 kubectl config use-context minikube
 ```
 
+Create a resource
+
+```
+kubectl create -f resourse_file.yml
+```
+
+Apply changes to a running resource
+
+```
+kubectl apply -f resourse_file.yml
+```
